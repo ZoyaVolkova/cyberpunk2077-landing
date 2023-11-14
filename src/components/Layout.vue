@@ -27,12 +27,43 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@keyframes changebackground {
+  from {
+    background-image: url("../assets/background.jpg");
+  }
+  30% {
+    background-image: url("../assets/background2.jpg");
+  }
+  70% {
+    background-image: url("../assets/background3.jpg");
+  }
+  to {
+    background-image: url("../assets/background.jpg");
+  }
+}
+@keyframes changebackground1024 {
+  from {
+    background-image: url("../assets/background_1024.jpg");
+  }
+  30% {
+    background-image: url("../assets/background2_1024.jpg");
+  }
+  70% {
+    background-image: url("../assets/background3_1024.jpg");
+  }
+  to {
+    background-image: url("../assets/background_1024.jpg");
+  }
+}
 .layout {
-  background-image: url("../assets/background.jpg");
+  //background-image: url("../assets/background.jpg");
   background-position: 50% 50%;
   width: 100%;
   height: 1000px;
   background-size: cover;
+  animation: changebackground 20s infinite;
+  
+  
   &_container {
     display: flex;
     align-items: flex-end;
@@ -96,6 +127,7 @@ export default {
 @media (min-width: 1024px) and (max-width: 1920px) {
     .layout {
       background-image: url("../assets/background_1024.jpg");
+      animation: changebackground1024 20s infinite;
       &_container {
         padding: 0px 36px; 
         &_header {
