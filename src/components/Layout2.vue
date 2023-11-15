@@ -11,10 +11,10 @@
       Заполни форму ниже и приложи скриншот о покупке игры. Итоги розыгрыша будут подведены 1 февраля. Удачи! ;)
       </span>
       <div class="layout2_container_box2 container-box2">
-        <form class="container-box2_form ">
-          <input class="container-box2_form_name" type="text" placeholder="Как тебя зовут?"/>
-          <input class="container-box2_form_email" type="text" placeholder="Твой е-mail"/>
-          <input-file></input-file>
+        <form class="container-box2_form" @submit.prevent="sendForm">
+          <input class="container-box2_form_name" type="text" placeholder="Как тебя зовут?" v-model="form.name"/>
+          <input class="container-box2_form_email" type="text" placeholder="Твой е-mail" v-model="form.email"/>
+          <input-file v-model="form.file"></input-file>
           <button class="container-box2_form_send-btn">Отправить</button>
           <checkbox></checkbox>
         </form>
@@ -31,7 +31,18 @@ export default {
   name: 'Layout2Component',
   components: {
     InputFile, Checkbox
+  },
+  data() {
+    return {
+      form: {}
+    }
+  },
+  methods: {
+    sendForm() {
+      console.log(this.form)
+    }
   }
+
 }
 </script>
 
